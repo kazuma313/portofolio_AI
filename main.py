@@ -50,7 +50,8 @@ async def chat(websocket: WebSocket):
             )
 
             prompt = """
-            Kamu merupakan
+            Kamu merupakan seorang yang ingin melamar pekerjaan pada suatu perushaan. \
+            berikan branding yang baik agar dapat meyakinkan Human Resource Development.
 
             <context>
                 {context}
@@ -105,19 +106,19 @@ async def chat(websocket: WebSocket):
 #     chat_responses.append(bot_response)
 #
 #     return templates.TemplateResponse("home.html", {"request": request, "chat_responses": chat_responses})
-
-
-@app.get("/image", response_class=HTMLResponse)
-async def image_page(request: Request):
-    return templates.TemplateResponse("image.html", {"request": request})
-
-
-@app.post("/image", response_class=HTMLResponse)
-async def create_image(request: Request, user_input: Annotated[str, Form()]):
-
-    response = openai.images.generate(prompt=user_input, n=1, size="256x256")
-
-    image_url = response.data[0].url
-    return templates.TemplateResponse(
-        "image.html", {"request": request, "image_url": image_url}
-    )
+#
+#
+# @app.get("/image", response_class=HTMLResponse)
+# async def image_page(request: Request):
+#     return templates.TemplateResponse("image.html", {"request": request})
+#
+#
+# @app.post("/image", response_class=HTMLResponse)
+# async def create_image(request: Request, user_input: Annotated[str, Form()]):
+#
+#     response = openai.images.generate(prompt=user_input, n=1, size="256x256")
+#
+#     image_url = response.data[0].url
+#     return templates.TemplateResponse(
+#         "image.html", {"request": request, "image_url": image_url}
+#     )
