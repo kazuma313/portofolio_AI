@@ -10,9 +10,13 @@ from langchain_core.prompts import PromptTemplate
 
 from dotenv import load_dotenv
 
+project = ["Computer Vision", "Natural Language Processing", "Data Science"]
 load_dotenv()
 
-st.title("Tanya-tanya tentang Kurnia Zulda")
+st.title("Kurnia Zulda Matondang")
+
+st.sidebar.header("#__My Project__")
+select_project = st.sidebar.selectbox('Project name', project)
 
 # openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 embedding = OpenAIEmbeddings(model="text-embedding-3-small")
@@ -48,16 +52,17 @@ def stream_response(input_text):
             yield chunk["answer"]
         pass
 
-
-with st.form("my_form"):
-    text = st.text_area(
-        "Enter text:",
-        "Perkenalkan diri anda",
-    )
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        st.write_stream(stream_response(text))
-    # if not openai_api_key.startswith("sk-"):
-    #     st.warning("Please enter your OpenAI API key!", icon="⚠")
-    # if submitted and openai_api_key.startswith("sk-"):
-    #     st.write_stream(stream_response(text))
+if select_project == project[1]:
+    st.header("Chat bot about me")
+    with st.form("my_form"):
+        text = st.text_area(
+            "Enter text:",
+            "Tanya-tanya tentang saya",
+        )
+        submitted = st.form_submit_button("Submit")
+        if submitted:
+            st.write_stream(stream_response(text))
+        # if not openai_api_key.startswith("sk-"):
+        #     st.warning("Please enter your OpenAI API key!", icon="⚠")
+        # if submitted and openai_api_key.startswith("sk-"):
+        #     st.write_stream(stream_response(text))
