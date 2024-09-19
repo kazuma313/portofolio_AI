@@ -16,6 +16,7 @@ websockets = "*"
 opencv-python = "*"
 scikit-image = "*"
 streamlit = "*"
+streamlit-pdf-viewer = "*"
 
 [dev-packages]
 
