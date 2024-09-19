@@ -72,13 +72,9 @@ if select_project == project[1]:
 
 elif select_project == project[0]:
     st.header("My last computer vision project")
-    st.title("Multiple Cameras")
-    # col1, col2 = st.columns((1, 1))
+    col1, col2 = st.columns((1, 1))
     # video_1 = col1.empty()
     # video_2 = col2.empty()
-    #
-    # cap1 = cv2.VideoCapture("assets/videos/2024_01_23_18_43_00___Trim.mp4")
-    # cap2 = cv2.VideoCapture("assets/videos/face-mask-video.mp4")
     #
     # while cap1.isOpened() or cap2.isOpened():
     #     ret1, frame1 = cap1.read()
@@ -89,14 +85,10 @@ elif select_project == project[0]:
     #     video_1.image(frame1, channels="RGB")
     #     video_2.image(frame2, channels="RGB")
 
-    # with col1:
-    #     # video_file = open("assets/videos/face-mask-video.mp4", "rb")
-    #     # video_bytes = video_file.read()
-    #     st.video("assets/videos/face-mask-video.mp4", format="video/mp4")
-    # with col2:
-    #     video_file = open("assets/videos/2024_01_23_18_43_00___Trim.mp4", "rb")
-    #     video_bytes = video_file.read()
-    #     st.video(video_bytes)
+    with col1:
+        st.video("assets/videos/container_id_1.mp4")
+    with col2:
+        st.video("assets/videos/face_mask_detection.mp4")
 
     col3, col4 = st.columns(2)
 
