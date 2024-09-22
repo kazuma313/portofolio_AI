@@ -52,6 +52,6 @@ class PDFload:
 
 
 if __name__ == "__main__":
-    embed_pdf = PDFload()
-    # embed_pdf.pdf_embedding("CV_Kurnia_Zulda_Matondang.pdf")
-    embed_pdf.pdf_load_embedding()
+    embed_pdf = PDFload(vector_save_path="tentang_zulda")
+    embed_pdf.pdf_embedding("assets/my_resume.pdf")
+    # embed_pdf.pdf_load_embedding()
