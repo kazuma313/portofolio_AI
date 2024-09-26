@@ -17,6 +17,7 @@ opencv-python = "*"
 scikit-image = "*"
 streamlit = "*"
 streamlit-pdf-viewer = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 

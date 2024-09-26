@@ -1,13 +1,12 @@
-import os
-from dotenv import load_dotenv
-from langchain_community.document_loaders import PyPDFLoader
+from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.chains.retrieval import create_retrieval_chain
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_openai import OpenAIEmbeddings, OpenAI
 from langchain_community.vectorstores import FAISS
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains.retrieval import create_retrieval_chain
+from dotenv import load_dotenv
 from langchain import hub
-from numpy.f2py.symbolic import Op
+import os
 
 load_dotenv()
 
@@ -52,6 +51,6 @@ class PDFload:
 
 
 if __name__ == "__main__":
-    embed_pdf = PDFload(vector_save_path="tentang_zulda")
+    embed_pdf = PDFload(vector_save_path="services/NLP/tentang_zulda")
     embed_pdf.pdf_embedding("assets/my_resume.pdf")
     # embed_pdf.pdf_load_embedding()

@@ -44,7 +44,7 @@ async def chat(websocket: WebSocket):
             ai_response = ""
             embedding = OpenAIEmbeddings(model="text-embedding-3-small")
             new_vectorstore = FAISS.load_local(
-                "faiss_index_react",
+                "services/NLP/faiss_index_react",
                 embeddings=embedding,
                 allow_dangerous_deserialization=True,
             )
