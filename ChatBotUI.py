@@ -16,7 +16,7 @@ if select_project == project[0]:
     with st.form("my_form"):
         text = st.text_area(
             "Enter text:",
-            placeholder="Tanya-tanya tentang saya",
+            placeholder="Tanya-tanya tentang saya", # perlu dirubah agar penulis tidak perlu menghapus
         )
         submitted = st.form_submit_button("Submit")
         if submitted:
