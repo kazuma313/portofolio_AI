@@ -19,6 +19,7 @@ streamlit = "*"
 streamlit-pdf-viewer = "*"
 pydantic-settings = "*"
 tiktoken = "*"
+skeleton = "*"
 
 [dev-packages]
 
