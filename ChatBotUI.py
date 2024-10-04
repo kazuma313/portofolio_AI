@@ -4,7 +4,7 @@ from settings import Settings
 import streamlit as st
 
 project = Settings().project_option
-st.warning("Still on progress development")
+st.error("Still on progress development")
 st.title("Kurnia Zulda Matondang")
 
 st.sidebar.header("#__My Project__")
@@ -17,7 +17,6 @@ if "token_limitation" not in st.session_state:
 
 if select_project == project[0]:
     st.header("Chat bot about me")
-
     with st.form("my_form"):
         text = st.text_area(
             "Enter text:",
@@ -52,7 +51,7 @@ if select_project == project[2]:
 
 
 if select_project == project[3]:
-    st.header("this is just a small part of what i learned which i show")
+    st.success("This is just a small part of what I've learned, but It's show that I'm serious about this field and continue to build my skills.", icon="✅")
     st.title("##AI Bootcamp certification")
     col1, col2 = st.columns(2)
     with col1:
