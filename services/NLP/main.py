@@ -39,7 +39,8 @@ def stream_response(input_text: str):
         Berikan informasi yang hanya terkait dengan kamu beserta bidang kamu.\
         
         Jika pertanyaan yang diajukan menggunakan bahasa inggris maka jawab lah dengan bahasa inggris.\
-        Penggunaan bahasa juga dapat ditentukan berdasarkan permintaan dari yang bertanya.
+        Jika pertanyaan yang diajukan menggunakan bahasa Indonesia maka jawab lah dengan bahasa Indonesia.\
+        pastikan bahasa yang digunakan sama dengan bahasa dari pertanyaan.
 
     <context>
         {context}
