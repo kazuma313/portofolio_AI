@@ -1,7 +1,7 @@
 from services.NLP.main import stream_response, get_token_count
-from streamlit_pdf_viewer import pdf_viewer
 from settings import Settings
 import streamlit as st
+
 
 project = Settings().project_option
 st.error("Still on progress development")
@@ -46,33 +46,8 @@ elif select_project == project[1]:
     st.image("assets/images/age_detection.jpg")
 
 
-if select_project == project[2]:
+elif select_project == project[2]:
     pass
-
-
-if select_project == project[3]:
-    st.success("This is just a small part of what I've learned, but It's show that I'm serious about this field and continue to build my skills.", icon="✅")
-    st.title("##AI Bootcamp certification")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.info("Got Excellent result", icon="ℹ️")
-        pdf_viewer(
-            "assets/documents/Certificate of Excellence Mastering AI Bootcamp - Kurnia Zulda Matondang.pdf"
-        )
-
-    with col2:
-        st.info("Complete AI Bootcamp successfully", icon="ℹ️")
-        pdf_viewer(
-            "assets/documents/Certificate of Completion Mastering AI Bootcamp - Kurnia Zulda Matondang.pdf"
-        )
-
-    st.info('Udemy certification', icon="ℹ️")
-    st.text("Learning Computer Vision")
-    pdf_viewer("assets/documents/Udemy_COMVIS_KurniaZuldaMatondang.pdf")
-
-
-if select_project == project[4]:
-    pdf_viewer("assets/documents/CV_Kurnia_Zulda_Matondang.pdf")
 
 
 ##########################################

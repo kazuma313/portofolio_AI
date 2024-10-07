@@ -6,8 +6,6 @@ class Settings(BaseSettings):
         "Natural Language Processing",
         "Computer Vision",
         "Data Science",
-        "Certificate",
-        "Curriculum Vitae",
     ]
     model_config = SettingsConfigDict(env_prefix="my_prefix_")
 
