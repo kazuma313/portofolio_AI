@@ -12,5 +12,4 @@ scikit-image
 streamlit 
 streamlit-pdf-viewer 
 pydantic-settings 
-tiktoken 
-skeleton
+tiktoken
