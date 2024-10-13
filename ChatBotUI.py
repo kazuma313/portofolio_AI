@@ -11,6 +11,7 @@ st.divider()
 if "token_limitation" not in st.session_state:
     st.session_state.token_limitation = 200
 
+
 def natural_language_processing():
     st.header("Chat bot about Kurnia Zulda Matondang")
     with st.form("my_form"):

@@ -49,8 +49,6 @@ def stream_response(input_text: str):
     text = ""
     # real_token = 0
     for chunk in retrival_chain.stream({"input": input_text}):
-        print(chunk)
-
         if "answer" in chunk:
             text += chunk["answer"]
             # real_token += 1
