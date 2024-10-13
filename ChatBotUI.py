@@ -3,24 +3,20 @@ from settings import Settings
 import streamlit as st
 
 
-project = Settings().project_option
 st.error("Still on progress development")
 st.title("Kurnia Zulda Matondang")
+st.divider()
 
-st.sidebar.header("#__My Project__")
-
-select_project = st.sidebar.selectbox("Project name", project)
 
 if "token_limitation" not in st.session_state:
     st.session_state.token_limitation = 200
 
-
-if select_project == project[0]:
-    st.header("Chat bot about me")
+def natural_language_processing():
+    st.header("Chat bot about Kurnia Zulda Matondang")
     with st.form("my_form"):
         text = st.text_area(
             "Enter text:",
-            placeholder="Tanya-tanya tentang saya",
+            placeholder="Ask anything about kurnia zulda matondang",
         )
         st.text(f"Token: {st.session_state.token_limitation} (just scenario if i limit the token)")
         submitted = st.form_submit_button("Submit")
@@ -32,7 +28,7 @@ if select_project == project[0]:
             st.text(f"Remaining token limit: {st.session_state.token_limitation}")
 
 
-elif select_project == project[1]:
+def computer_vision():
     st.header("My last computer vision project")
     col1, col2 = st.columns((1, 1))
     with col1:
@@ -46,8 +42,8 @@ elif select_project == project[1]:
     st.image("assets/images/age_detection.jpg")
 
 
-elif select_project == project[2]:
-    pass
+pg = st.navigation([st.Page(natural_language_processing), st.Page(computer_vision)])
+pg.run()
 
 
 ##########################################

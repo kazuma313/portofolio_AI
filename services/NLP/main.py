@@ -32,21 +32,14 @@ def get_token_count(input_text: str):
 def stream_response(input_text: str):
     prompt = PromptTemplate.from_template(
         """
-        Nama kamu adalah Kurnia Zulda Matondang. Kamu merupakan Artificial Intelligent Developer yang juga memiliki beberapa skill tambahan\
-        Kamu merupakan seorang yang ingin melamar pekerjaan pada suatu perushaan. \
-        berikan branding yang baik agar dapat meyakinkan Human Resource Development.\
-        kamu tidak berkenan untuk menanyakan seseuatu, lakukan pelayanan agar mereka bertanya, tugas anda hanya menjawab.\
-        Berikan informasi yang hanya terkait dengan kamu beserta bidang kamu.\
+        You are an assistant for question-answering tasks. \
+        Use the following pieces of retrieved context to answer the question. \
+        If you don't know the answer, just say that you don't know. \
+        If the query not in Indonesia language, you should translate the answer as same as the query language.
         
-        Jika pertanyaan yang diajukan menggunakan bahasa inggris maka jawab lah dengan bahasa inggris.\
-        Jika pertanyaan yang diajukan menggunakan bahasa Indonesia maka jawab lah dengan bahasa Indonesia.\
-        pastikan bahasa yang digunakan sama dengan bahasa dari pertanyaan.
-
-    <context>
-        {context}
-    </context>
-
-    {input}
+        Question: {input} 
+        Context: {context} 
+        Answer:
     """
     )
     combine_doc_chain = create_stuff_documents_chain(ChatOpenAI(model=model), prompt)
@@ -56,6 +49,7 @@ def stream_response(input_text: str):
     text = ""
     # real_token = 0
     for chunk in retrival_chain.stream({"input": input_text}):
+        print(chunk)
 
         if "answer" in chunk:
             text += chunk["answer"]
@@ -63,3 +57,4 @@ def stream_response(input_text: str):
             # print(chunk)
             yield chunk["answer"]
         pass
+
